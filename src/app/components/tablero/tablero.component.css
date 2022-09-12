@@ -1,0 +1,47 @@
+main {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 0px;
+}
+  
+app-tablero {
+    border: 1px gray solid;
+    height: 200px;
+}
+
+.btn-group-vertical button{
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+    color: black;
+    background-color: #5e69c7;
+}
+button{
+    border-radius: 40%;
+}
+
+.card-body button{
+    border-radius: 5%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.container2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+} 
+
+canvas{
+    width: 600px;
+    height: 600px;
+    margin-right: 10%;
+}

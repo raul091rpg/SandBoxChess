@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card text-center">
+      <div class="card-header">
+        <b> INGRESO</b>
+      </div>
+      <div class="card-body p-4" style="font-size: 16px; font-weight: bold;">
+        <label>Email</label>
+        <input class="form-control m-2" type="email" placeholder="Ingrese su email" [(ngModel)]="usuario.email">
+        <label>Password</label>
+        <input class="form-control m-2" type="password" placeholder="Ingrese su password" [(ngModel)]="usuario.password">
+        <div class="d-grid">
+          <button class="btn btn-primary m-2" (click)="ingresar()">Ingresar</button>
+          <button class="btn btn-danger m-2" (click)="ingresarGoogle()">Ingresar con Google</button>
+          <label>Aún no tienes cuenta? <a routerLink="/registro">Registrarse</a></label>
+        </div>
+      </div>
+    </div>
+  </div> 

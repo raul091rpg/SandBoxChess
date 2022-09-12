@@ -1,0 +1,20 @@
+<div class="container">
+    <canvas id="canvasID" #canvasRef [hidden]="!salaID"></canvas>
+    <div *ngIf="!salaID" class="card text-center">
+        <div class="card-header">
+            <b>Unirse a una sala</b>
+        </div>
+        <div class="card-body p-4" style="font-size: 16px; font-weight: bold;">
+            <input class="form-control m-2" type="text" placeholder="NOMBRE SALA" [(ngModel)]="formulario.sala">
+            <button class="btn btn-success" (click)="unirseSala()">Unirse Sala</button>          
+        </div>
+    </div>
+    <div id="menuCoronacion" *ngIf="peonCoronado==true">
+        <div class="btn-group-vertical">
+            <button type="button" (click)="intercambiarPeon('n')" class="btn btn-primary">♞</button>
+            <button type="button" (click)="intercambiarPeon('b')" class="btn btn-primary">♝</button>
+            <button type="button" (click)="intercambiarPeon('r')" class="btn btn-primary">♜</button>
+            <button type="button" (click)="intercambiarPeon('q')" class="btn btn-primary">♛</button>
+          </div>
+    </div>
+</div>

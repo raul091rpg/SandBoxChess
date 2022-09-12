@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="card text-center">
+      <div class="card-header">
+        <b> Registro</b>
+      </div>
+      <div class="card-body p-4" style="font-size: 16px; font-weight: bold;">
+        <label>Email</label>
+        <input class="form-control m-2" type="email" placeholder="Ingrese un email" [(ngModel)]="usuario.email">
+        <label>Password</label>
+        <input class="form-control m-2" type="password" placeholder="Ingrese una password" [(ngModel)]="usuario.password">
+        <div class="d-grid">
+          <button class="btn btn-primary m-2" (click)="registrar()">Registrarse</button>
+          <label>Ya tienes cuenta? <a routerLink="/login">Ingresar</a></label>
+        </div>
+      </div>
+    </div>
+  </div> 

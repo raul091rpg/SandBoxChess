@@ -1,0 +1,30 @@
+<div *ngIf="userLogged|async as user; else btnIngresar">
+    <div *ngIf="!configuracion; else mostrarConfiguracion">
+        <div class="container">
+            <div class="card text-center">
+                <div class="card-header">
+                    <b>{{user.email}}</b><img style="border-radius: 100%; margin: 5px;" *ngIf="user.photoURL" [src]="user.photoURL" alt="" width="25" height="25">
+                </div>
+                <div *ngIf="mostrarJugadas; else listaJugadas" class="card-body p-4" style="font-size: 16px; font-weight: bold;">
+                    <button class="btn btn-primary m-2" (click)="obtenerTablerosUsuario(user.email)">obtener jugadas</button><br>
+                </div>
+                <ng-template #listaJugadas>
+                    <select id="codJugada" class="form-select" aria-label="Default select example">
+                        <option *ngFor="let jugada of jugadas">
+                            {{jugada.jugada}}
+                            {{jugada.codigo}}
+                        </option>
+                      </select>
+                      <button class="btn btn-primary m-2" (click)="cargarTableroJugada()">Cargar tablero</button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <ng-template #mostrarConfiguracion>
+        <app-configuracion [datosJugada]="valueJugada"></app-configuracion>
+    </ng-template>
+</div>
+<ng-template #btnIngresar>
+    <button class="btn btn-secondary" routerLink="/login">Ingresar</button>
+</ng-template>
+

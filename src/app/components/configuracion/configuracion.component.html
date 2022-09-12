@@ -1,0 +1,49 @@
+<div *ngIf="userLogged|async as user; else btnIngresar">
+    <div *ngIf="!salaID; else cargarSala">
+    <div *ngIf="!datosJugada;">
+        <div class="container" *ngIf="mostrarFormulario">
+            <div class="card text-center">
+                <div class="card-header">
+                    <b>CONFIGURACION DEL TABLERO</b>
+                </div>
+                <div class="card-body p-4" style="font-size: 16px; font-weight: bold;">
+                    <label >DIMENSION</label>
+                    <input class="form-control m-2" type="number" placeholder="Dimension tablero" min="4" max="15" value="8" [(ngModel)]="formulario.dimension">
+                    <label>CODIGO FEN</label><br>
+                    <input class="form-control m-2" type="text" placeholder="Fen tablero" [(ngModel)]="formulario.fen">
+                    <button class="btn btn-primary m-2" (click)="ponerParametros()">Crear Tablero</button><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="datosJugada;" [hidden]="mostrarTablero">
+        <div class="container">
+            <h2 style="font-size: bold;">INFORMACION CARGADA</h2>
+            <button class="btn btn-primary m-2" (click)="ponerParametrosPerfil()">Crear Tablero</button><br>
+        </div>
+    </div>
+    <div class="canvas" [hidden]="!mostrarTablero">
+        <canvas id="canvasID" #canvasRef></canvas>
+        <canvas id="canvasIDPiezas" #canvasRefPiezas style="margin-left: 10%; float: right;"></canvas>
+        <div class="card text-center">
+            <div class="card-header">
+                <b>CONFIGURACION DEL TABLERO</b>
+            </div>
+            <div class="card-body p-4" style="font-size: 16px; font-weight: bold;">
+                <input class="form-control m-2" id="jugada" type="text" placeholder="NOMBRE JUGADA" [(ngModel)]="formulario.nombre">
+                <button class="btn btn-success" (click)="guardarJugada(user.email)" >Guardar</button>
+                <input class="form-control m-2" type="text" placeholder="NOMBRE SALA" [(ngModel)]="formulario.sala">
+                <button class="btn btn-success" (click)="crearSala()">Crear Sala</button>          
+            </div>
+        </div>
+    </div>
+</div>
+    <ng-template #cargarSala>
+        <app-tablero [salaID]="salaID" [situacionTablero]="situacionTablero"></app-tablero>
+    </ng-template>
+</div>
+
+
+<ng-template #btnIngresar>
+    <button class="btn btn-secondary" routerLink="/login">Ingresar</button>
+</ng-template>
